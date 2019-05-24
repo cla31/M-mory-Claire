@@ -1,5 +1,6 @@
 package javaIPImai2019JeuMemory;
 //cette classe a la responsabilité de charger les images et de générer une pioche aléatoire.
+//récupère l'ensemble des cartes
 
 
 import java.io.IOException;
