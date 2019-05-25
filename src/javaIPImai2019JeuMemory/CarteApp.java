@@ -1,5 +1,7 @@
 package javaIPImai2019JeuMemory;
 
+import java.awt.BorderLayout;
+
 //vue
 
 import java.awt.Container;
@@ -20,7 +22,8 @@ import javax.swing.SwingUtilities;
 
 public class CarteApp extends FrameForDemoMaker {
 	
-	EtatMemoire etatMemoire = new EtatMemoire();
+	EtatMemoire etatMemoire = new EtatMemoire("vérification");
+	
 
 	private static final int COLUMN_COUNT = 6;
 	private static final int ROW_COUNT = 4;
@@ -34,6 +37,8 @@ public class CarteApp extends FrameForDemoMaker {
 
 	@Override
 	public void init(JFrame frame) {
+		
+		
 		Container cp = frame.getContentPane();
 
 		cp.setLayout(new GridLayout(ROW_COUNT, COLUMN_COUNT));
@@ -97,7 +102,9 @@ public class CarteApp extends FrameForDemoMaker {
 
 	public static void main(String[] args) throws IOException {
 		CarteApp example = new CarteApp();
+		EtatMemoire example1 = new EtatMemoire("verification");
 		SwingUtilities.invokeLater(example);
+		SwingUtilities.invokeLater(example1);
 		
 		
 	}

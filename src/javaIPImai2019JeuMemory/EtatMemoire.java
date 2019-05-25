@@ -11,16 +11,31 @@ package javaIPImai2019JeuMemory;
  */
 
 
+
+import java.awt.BorderLayout;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JToggleButton;
+import javax.swing.SwingUtilities;
 
-public class EtatMemoire {
 
-    private List<JToggleButton> listeBoutonsSelectionnes = new ArrayList<>(); //attribut listeBoutonsSelectionnes:c’est la liste des boutons sélectionnés. 
+
+public class EtatMemoire extends FrameForDemoMaker{
+
+    public EtatMemoire(String title) {
+		super("Paire ou pas paire?");
+		
+	}
+	private List<JToggleButton> listeBoutonsSelectionnes = new ArrayList<>(); //attribut listeBoutonsSelectionnes:c’est la liste des boutons sélectionnés. 
     //La taille de cette liste donne le nombre de cartes actuellement retournées (hormis les doublons déjà trouvés)
-
+     int nombreCoups = 0;
+     int nombreDoublons = 0;
+   //essai pour afficher une fenêtre si une paire est trouvée:
+     Boolean verification = false;
+     
     private void verifierNombreCartesRetournees() {
         if (listeBoutonsSelectionnes.size() >= 2) {
             for (JToggleButton jToggleButton : listeBoutonsSelectionnes) {
@@ -42,8 +57,14 @@ public class EtatMemoire {
                 //Et on vide la liste (pour éviter qu'elles ne soient
                 //à nouveau retournées:
                 listeBoutonsSelectionnes.clear();
+                nombreDoublons ++;
+                //essai pour fafficher une fenêtre si une paire est trouvée:
+                verification = true;
             }
         }
+        System.out.println(nombreDoublons);
+        
+        
     }
 
     public void nouveauBoutonSelectionne(JToggleButton button) {
@@ -63,6 +84,32 @@ public class EtatMemoire {
         
         //il faut rajouter le nombre de coups joués depuis le début de la partie et le nombre de doublons trouvés.
     }
+    
+    //pour afficher une fenêtre si une paire est trouvée:
+	@Override
+	public void init(JFrame frame) {
+		// TODO Auto-generated method stub
+		if(verification ==true) {
+		
+			JButton button1 = new JButton("Une paire trouvée!!!");
+			frame.getContentPane().add(button1, BorderLayout.CENTER);
+			
+		
+		}
+		
+		
+		
+	}
+	
+	//essai pour fafficher une fenêtre si une paire est trouvée:
+	
+//	public static void main(String[] args) {
+//		EtatMemoire example = new EtatMemoire("verification");
+//		SwingUtilities.invokeLater(example);
+//
+//	}
+//	
+	
     
     
 }
