@@ -22,7 +22,7 @@ import javax.swing.SwingUtilities;
 
 public class CarteApp extends FrameForDemoMaker {
 	
-	EtatMemoire etatMemoire = new EtatMemoire("vérification");
+	EtatMemoire etatMemoire = new EtatMemoire();
 	
 
 	private static final int COLUMN_COUNT = 6;
@@ -102,9 +102,9 @@ public class CarteApp extends FrameForDemoMaker {
 
 	public static void main(String[] args) throws IOException {
 		CarteApp example = new CarteApp();
-		EtatMemoire example1 = new EtatMemoire("verification");
+		
 		SwingUtilities.invokeLater(example);
-		SwingUtilities.invokeLater(example1);
+		
 		
 		
 	}
