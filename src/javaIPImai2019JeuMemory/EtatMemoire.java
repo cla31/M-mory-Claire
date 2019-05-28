@@ -44,6 +44,8 @@ public class EtatMemoire {
 	}
 	private void verifierCartesIdentiques() {
 		if (listeBoutonsSelectionnes.size() == 2) {
+			nombreCoups++;
+			System.out.println("coups n° "+ nombreCoups);
 			if(listeBoutonsSelectionnes.get(0).getClientProperty("carte")
 					.equals(listeBoutonsSelectionnes.get(1).getClientProperty("carte"))) {
 				//Les deux cartes sont identiques:
